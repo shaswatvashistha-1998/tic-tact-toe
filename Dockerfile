@@ -1,5 +1,5 @@
 # Use a Node.js image for building the React app
-FROM node:18 AS builder
+FROM node:17 AS builder
 
 # Set working directory
 WORKDIR /app
@@ -17,7 +17,7 @@ COPY . .
 RUN npm run build
 
 # Use a lightweight server to serve the built app
-FROM nginx:alpine
+FROM nginx:ubuntu
 
 # Copy build output to Nginx HTML directory
 COPY --from=builder /app/dist /usr/share/nginx/html
