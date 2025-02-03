@@ -17,7 +17,7 @@ COPY . .
 RUN npm run build
 
 # Use a lightweight server to serve the built app
-FROM nginx:alpine
+FROM nginx:ubuntu
 
 # Copy build output to Nginx HTML directory
 COPY --from=builder /app/dist /usr/share/nginx/html
