@@ -17,7 +17,7 @@ COPY . .
 RUN npm run build
 
 # Use a lightweight server to serve the built app
-FROM 425964170654.dkr.ecr.us-east-1.amazonaws.com/nginx:latest
+FROM nginx:alpine3.20⁠
 
 # Copy build output to Nginx HTML directory
 COPY --from=builder /app/dist /usr/share/nginx/html
